@@ -1,0 +1,83 @@
+<html>
+<head>
+  <title>Grass Valley College</title>
+  <!-- CSS -->
+  <style>
+    body {
+      background: #5c066b;
+      color: #2ce1f1ab;
+      transition: background 1s, color 1s;
+      font-family: monospace;
+      text-shadow: 10px 10px 10px 10px rgb#2ce1f1ab;
+    }
+    body.light-mode {
+      background: #00d1fb;
+      color: #3f005e;
+      font-family: monospace;
+      text-shadow: 10px 10px 10px 10px rgb#5c066b;
+    }
+    button {
+      margin-bottom: 20px;
+    }
+    header {
+      font-size: 100px;
+      margin-bottom: 20px;
+      font-family: monospace;
+    }
+    div#div1 {
+       width: 300px;
+  height: 300px;
+  border-radius: 5%;
+  background-color: #000000;
+  box-shadow: 3px 3px 3px 3px rgb(225, 0, 255);
+    padding: 20px;
+    }
+  </style>
+</head>
+<!-- HTML -->
+<body>
+    <button onclick="openModal()">Show Modal!</button>
+
+    <div id="modalBackdrop" style="display:none;position:fixed;z-index:2000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);">
+  <div style="background:#191d1f;padding:2em 1.5em;border-radius:20px;max-width:350px;margin:100px auto;">
+    <p>This is a modal pop-up!</p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+    <form id="myForm">
+    <input type="text" id="nameInput" placeholder="Your name">
+    <input type="submit" value="Submit">
+  </form>
+  <div id="div1">
+  <h1 id="header">Grass Valley College</h1>
+  <button onclick="toggleMode()" id="modeBtn"> Dark Mode</button>
+  <p>Grass Valley College is a prestigous college found in Oakland, California.</p>
+   <button id="learnMoreBtn">Learn More</button>
+   <p id="learnMoreText"></p>
+    </div>
+<!-- JS -->
+  <script>
+    document.getElementById("myButton").addEventListener("click", function() {
+  document.getElementById("demo").innerHTML = "You triggered a click event! :rocket:";
+});
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+      const btn = document.getElementById("modeBtn");
+      if (document.body.classList.contains('light-mode')) {
+        btn.innerText = "Light Mode";
+      } else {
+        btn.innerText = "Dark Mode";
+      }
+    }
+    document.getElementById("learnMoreBtn").addEventListener("click", function() {
+        document.getElementById("learnMoreText").innerHTML = "Grass Valley College offers a wide range of programs in arts, sciences, and technology. It is known for its excellent faculty and vibrant campus life. Grass Valley College allows students to learn of much more creativity and technology based carrers. It also give many opprutunities to market and network while at the school."
+    });
+    function openModal() {
+    document.getElementById('modalBackdrop').style.display = 'block';
+  }
+  function closeModal() {
+    document.getElementById('modalBackdrop').style.display = 'none';
+  }
+  </script>
+</body>
+</html>
